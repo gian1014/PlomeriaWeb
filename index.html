@@ -1,11 +1,10 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Plomería Profesional | Mar del Plata</title>
+    <title>NgpInstalaciones | Plomería, Gas y Calefacción | Mar del Plata</title>
 
     <style>
         * {
@@ -45,14 +44,19 @@
             justify-content: space-between;
         }
 
-        .logo {
-            font-size: 25px;
-            font-weight: 800;
-            color: #123b5d;
+        /* LOGO */
+
+        .logo-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
         }
 
-        .logo span {
-            color: #168ac2;
+        .logo-img {
+            height: 55px;
+            width: auto;
+            max-width: 220px;
+            object-fit: contain;
         }
 
         nav {
@@ -70,29 +74,67 @@
             color: #168ac2;
         }
 
+
+        /* =========================
+           HERO + CARRUSEL
+        ========================= */
+
         .hero {
             min-height: 750px;
             padding: 150px 25px 80px;
+
+            position: relative;
+            overflow: hidden;
 
             display: flex;
             align-items: center;
 
             color: white;
+        }
+
+        .hero-slider {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+
+        .hero-slide {
+            position: absolute;
+            inset: 0;
+
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
 
             background:
                 linear-gradient(
                     90deg,
                     rgba(7,28,45,0.92),
                     rgba(7,28,45,0.55)
-                ),
-                url("https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=1800&q=85")
-                center/cover;
+                );
+
+            z-index: 1;
         }
 
         .hero-content {
             max-width: 1200px;
             width: 100%;
             margin: auto;
+
+            position: relative;
+            z-index: 3;
         }
 
         .hero-small {
@@ -142,6 +184,96 @@
             color: white;
         }
 
+        .button:hover {
+            opacity: 0.9;
+        }
+
+
+        /* FLECHAS DEL CARRUSEL */
+
+        .slider-arrow {
+            position: absolute;
+
+            top: 50%;
+            transform: translateY(-50%);
+
+            width: 48px;
+            height: 48px;
+
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.5);
+
+            background: rgba(0,0,0,0.25);
+
+            color: white;
+            font-size: 28px;
+
+            cursor: pointer;
+
+            z-index: 4;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            transition: 0.3s;
+        }
+
+        .slider-arrow:hover {
+            background: rgba(22,138,194,0.9);
+            border-color: #168ac2;
+        }
+
+        .slider-prev {
+            left: 25px;
+        }
+
+        .slider-next {
+            right: 25px;
+        }
+
+
+        /* INDICADORES */
+
+        .slider-dots {
+            position: absolute;
+
+            bottom: 35px;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            display: flex;
+            gap: 9px;
+
+            z-index: 4;
+        }
+
+        .slider-dot {
+            width: 10px;
+            height: 10px;
+
+            border-radius: 50%;
+
+            border: none;
+
+            background: rgba(255,255,255,0.5);
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .slider-dot.active {
+            background: white;
+            transform: scale(1.2);
+        }
+
+
+        /* =========================
+           ESTADISTICAS
+        ========================= */
+
         .stats {
             background: #123b5d;
             color: white;
@@ -176,6 +308,11 @@
             font-size: 14px;
         }
 
+
+        /* =========================
+           GENERAL
+        ========================= */
+
         section {
             padding: 100px 25px;
         }
@@ -207,6 +344,11 @@
             font-size: 17px;
         }
 
+
+        /* =========================
+           EMPRESA
+        ========================= */
+
         .about {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -229,6 +371,11 @@
             line-height: 1.8;
             margin-bottom: 18px;
         }
+
+
+        /* =========================
+           SERVICIOS
+        ========================= */
 
         .services {
             background: #f4f6f8;
@@ -276,6 +423,11 @@
             line-height: 1.6;
         }
 
+
+        /* =========================
+           TRABAJOS
+        ========================= */
+
         .projects-grid {
             margin-top: 45px;
 
@@ -317,6 +469,11 @@
             );
         }
 
+
+        /* =========================
+           OBRAS
+        ========================= */
+
         .works {
             background: #0b263d;
             color: white;
@@ -344,6 +501,13 @@
 
             background: rgba(255,255,255,0.05);
             border: 1px solid rgba(255,255,255,0.12);
+
+            transition: 0.3s;
+        }
+
+        .work:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.10);
         }
 
         .work h3 {
@@ -353,6 +517,11 @@
         .work p {
             color: #aebec9;
         }
+
+
+        /* =========================
+           CTA
+        ========================= */
 
         .cta {
             text-align: center;
@@ -374,6 +543,11 @@
             margin: 0 auto 30px;
             color: #dcebf3;
         }
+
+
+        /* =========================
+           CONTACTO
+        ========================= */
 
         .contact {
             background: #f5f7f9;
@@ -414,6 +588,11 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
 
+
+        /* =========================
+           FOOTER
+        ========================= */
+
         footer {
             background: #081d2d;
             color: white;
@@ -424,6 +603,11 @@
         footer p {
             color: #9eabb5;
         }
+
+
+        /* =========================
+           WHATSAPP
+        ========================= */
 
         .whatsapp {
             position: fixed;
@@ -451,6 +635,11 @@
             z-index: 2000;
         }
 
+
+        /* =========================
+           TABLET
+        ========================= */
+
         @media(max-width: 850px) {
 
             nav {
@@ -474,9 +663,36 @@
             .works-grid {
                 grid-template-columns: 1fr;
             }
+
+            .slider-arrow {
+                width: 42px;
+                height: 42px;
+            }
+
+            .slider-prev {
+                left: 15px;
+            }
+
+            .slider-next {
+                right: 15px;
+            }
         }
 
+
+        /* =========================
+           CELULAR
+        ========================= */
+
         @media(max-width: 600px) {
+
+            .navbar {
+                height: 70px;
+            }
+
+            .logo-img {
+                height: 48px;
+                max-width: 180px;
+            }
 
             .hero {
                 min-height: 680px;
@@ -506,27 +722,61 @@
             .contact-box {
                 padding: 25px;
             }
+
+            .slider-arrow {
+                width: 38px;
+                height: 38px;
+                font-size: 22px;
+            }
+
+            .slider-prev {
+                left: 10px;
+            }
+
+            .slider-next {
+                right: 10px;
+            }
+
+            .slider-dots {
+                bottom: 20px;
+            }
         }
     </style>
 </head>
 
 <body>
 
+
 <header>
 
     <div class="navbar">
 
-        <div class="logo">
-            Ngp<span>Instalaciones</span>
-        </div>
+        <a href="#inicio" class="logo-link">
+
+            <!--
+                LOGO:
+                Subí tu archivo a:
+                imagenes/logo.png
+            -->
+
+            <img
+                src="imagenes/logo.png"
+                alt="NgpInstalaciones"
+                class="logo-img"
+            >
+
+        </a>
+
 
         <nav>
+
             <a href="#inicio">Inicio</a>
             <a href="#empresa">Empresa</a>
             <a href="#servicios">Servicios</a>
             <a href="#trabajos">Trabajos</a>
             <a href="#obras">Obras</a>
             <a href="#contacto">Contacto</a>
+
         </nav>
 
     </div>
@@ -534,7 +784,47 @@
 </header>
 
 
+
+<!-- =========================
+     INICIO + CARRUSEL
+========================= -->
+
 <section class="hero" id="inicio">
+
+
+    <!-- IMÁGENES DEL CARRUSEL -->
+
+    <div class="hero-slider">
+
+        <div
+            class="hero-slide active"
+            style="background-image:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1800&q=85');">
+        </div>
+
+        <div
+            class="hero-slide"
+            style="background-image:url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1800&q=85');">
+        </div>
+
+        <div
+            class="hero-slide"
+            style="background-image:url('https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=1800&q=85');">
+        </div>
+
+        <div
+            class="hero-slide"
+            style="background-image:url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1800&q=85');">
+        </div>
+
+    </div>
+
+
+    <!-- OSCURECIMIENTO -->
+
+    <div class="hero-overlay"></div>
+
+
+    <!-- CONTENIDO -->
 
     <div class="hero-content">
 
@@ -555,13 +845,16 @@
 
         <div class="buttons">
 
-            <a href="#contacto"
-               class="button button-primary">
+            <a
+                href="#contacto"
+                class="button button-primary">
                 Solicitar presupuesto
             </a>
 
-            <a href="https://wa.me/5492235479235"
-               class="button button-secondary">
+            <a
+                href="https://wa.me/5492235479235"
+                class="button button-secondary"
+                target="_blank">
                 WhatsApp
             </a>
 
@@ -569,8 +862,64 @@
 
     </div>
 
+
+    <!-- FLECHA IZQUIERDA -->
+
+    <button
+        class="slider-arrow slider-prev"
+        onclick="changeSlide(-1)"
+        aria-label="Imagen anterior">
+        ‹
+    </button>
+
+
+    <!-- FLECHA DERECHA -->
+
+    <button
+        class="slider-arrow slider-next"
+        onclick="changeSlide(1)"
+        aria-label="Imagen siguiente">
+        ›
+    </button>
+
+
+    <!-- INDICADORES -->
+
+    <div class="slider-dots">
+
+        <button
+            class="slider-dot active"
+            onclick="goToSlide(0)"
+            aria-label="Imagen 1">
+        </button>
+
+        <button
+            class="slider-dot"
+            onclick="goToSlide(1)"
+            aria-label="Imagen 2">
+        </button>
+
+        <button
+            class="slider-dot"
+            onclick="goToSlide(2)"
+            aria-label="Imagen 3">
+        </button>
+
+        <button
+            class="slider-dot"
+            onclick="goToSlide(3)"
+            aria-label="Imagen 4">
+        </button>
+
+    </div>
+
 </section>
 
+
+
+<!-- =========================
+     ESTADISTICAS
+========================= -->
 
 <div class="stats">
 
@@ -600,6 +949,11 @@
 
 </div>
 
+
+
+<!-- =========================
+     EMPRESA
+========================= -->
 
 <section id="empresa">
 
@@ -635,6 +989,11 @@
 </section>
 
 
+
+<!-- =========================
+     SERVICIOS
+========================= -->
+
 <section class="services" id="servicios">
 
     <div class="container">
@@ -655,10 +1014,12 @@
 
         <div class="services-grid">
 
+
             <div class="service">
 
-                <div class="service-image"
-                     style="background-image:url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=900&q=80');">
+                <div
+                    class="service-image"
+                    style="background-image:url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=900&q=80');">
                 </div>
 
                 <div class="service-content">
@@ -675,10 +1036,12 @@
             </div>
 
 
+
             <div class="service">
 
-                <div class="service-image"
-                     style="background-image:url('https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=900&q=80');">
+                <div
+                    class="service-image"
+                    style="background-image:url('https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=900&q=80');">
                 </div>
 
                 <div class="service-content">
@@ -695,10 +1058,12 @@
             </div>
 
 
+
             <div class="service">
 
-                <div class="service-image"
-                     style="background-image:url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=80');">
+                <div
+                    class="service-image"
+                    style="background-image:url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=80');">
                 </div>
 
                 <div class="service-content">
@@ -722,6 +1087,11 @@
 </section>
 
 
+
+<!-- =========================
+     TRABAJOS
+========================= -->
+
 <section id="trabajos">
 
     <div class="container">
@@ -742,9 +1112,12 @@
 
         <div class="projects-grid">
 
+
             <div class="project">
 
-                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=900&q=80">
+                <img
+                    src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=900&q=80"
+                    alt="Trabajo en obra">
 
                 <div class="project-title">
                     Trabajo en obra
@@ -753,9 +1126,12 @@
             </div>
 
 
+
             <div class="project">
 
-                <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=900&q=80">
+                <img
+                    src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=900&q=80"
+                    alt="Instalaciones residenciales">
 
                 <div class="project-title">
                     Instalaciones residenciales
@@ -764,9 +1140,12 @@
             </div>
 
 
+
             <div class="project">
 
-                <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=900&q=80">
+                <img
+                    src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=900&q=80"
+                    alt="Obras y proyectos">
 
                 <div class="project-title">
                     Obras y proyectos
@@ -774,12 +1153,18 @@
 
             </div>
 
+
         </div>
 
     </div>
 
 </section>
 
+
+
+<!-- =========================
+     OBRAS
+========================= -->
 
 <section class="works" id="obras">
 
@@ -801,33 +1186,53 @@
 
         <div class="works-grid">
 
+
             <div class="work">
+
                 <h3>Edificios</h3>
+
                 <p>
                     Instalaciones sanitarias y de gas.
                 </p>
+
             </div>
 
+
+
             <div class="work">
+
                 <h3>Constructoras</h3>
+
                 <p>
                     Coordinación y ejecución de trabajos.
                 </p>
+
             </div>
 
+
+
             <div class="work">
+
                 <h3>Arquitectos</h3>
+
                 <p>
                     Acompañamiento durante el proyecto.
                 </p>
+
             </div>
 
+
+
             <div class="work">
+
                 <h3>Comercios y empresas</h3>
+
                 <p>
                     Instalaciones y mantenimiento.
                 </p>
+
             </div>
+
 
         </div>
 
@@ -835,6 +1240,11 @@
 
 </section>
 
+
+
+<!-- =========================
+     CTA
+========================= -->
 
 <section class="cta">
 
@@ -849,8 +1259,10 @@
             y nos ponemos en contacto.
         </p>
 
-        <a href="https://wa.me/5492230000000"
-           class="button button-primary">
+        <a
+            href="https://wa.me/5492235479235"
+            class="button button-primary"
+            target="_blank">
             Consultar por WhatsApp
         </a>
 
@@ -859,9 +1271,15 @@
 </section>
 
 
+
+<!-- =========================
+     CONTACTO
+========================= -->
+
 <section class="contact" id="contacto">
 
     <div class="container contact-grid">
+
 
         <div>
 
@@ -878,26 +1296,55 @@
                 información o presupuesto.
             </p>
 
+
             <div class="contact-info">
 
-                <div class="contact-item">
-                    <span>WhatsApp / Teléfono</span>
-                    <strong>223 XXX XXXX</strong>
-                </div>
 
                 <div class="contact-item">
-                    <span>Email</span>
-                    <strong>contacto@tuempresa.com</strong>
+
+                    <span>
+                        WhatsApp / Teléfono
+                    </span>
+
+                    <strong>
+                        223 XXX XXXX
+                    </strong>
+
                 </div>
 
+
+
                 <div class="contact-item">
-                    <span>Zona</span>
-                    <strong>Mar del Plata y zona</strong>
+
+                    <span>
+                        Email
+                    </span>
+
+                    <strong>
+                        contacto@tuempresa.com
+                    </strong>
+
                 </div>
+
+
+
+                <div class="contact-item">
+
+                    <span>
+                        Zona
+                    </span>
+
+                    <strong>
+                        Mar del Plata y zona
+                    </strong>
+
+                </div>
+
 
             </div>
 
         </div>
+
 
 
         <div class="contact-box">
@@ -911,17 +1358,25 @@
                 escribinos directamente por WhatsApp.
             </p>
 
-            <a href="https://wa.me/5492235479235"
-               class="button button-primary">
+            <a
+                href="https://wa.me/5492235479235"
+                class="button button-primary"
+                target="_blank">
                 Escribir por WhatsApp
             </a>
 
         </div>
 
+
     </div>
 
 </section>
 
+
+
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
@@ -933,12 +1388,105 @@
 </footer>
 
 
+
+<!-- =========================
+     BOTON WHATSAPP
+========================= -->
+
 <a
     class="whatsapp"
-    href="https://wa.me/5492235479235">
+    href="https://wa.me/5492235479235"
+    target="_blank"
+    aria-label="WhatsApp">
+
     W
+
 </a>
+
+
+
+<!-- =========================
+     JAVASCRIPT DEL CARRUSEL
+========================= -->
+
+<script>
+
+    let currentSlide = 0;
+
+    const slides = document.querySelectorAll(".hero-slide");
+    const dots = document.querySelectorAll(".slider-dot");
+
+
+    function showSlide(index) {
+
+        if (index >= slides.length) {
+            currentSlide = 0;
+        }
+
+        else if (index < 0) {
+            currentSlide = slides.length - 1;
+        }
+
+        else {
+            currentSlide = index;
+        }
+
+
+        slides.forEach((slide) => {
+            slide.classList.remove("active");
+        });
+
+
+        dots.forEach((dot) => {
+            dot.classList.remove("active");
+        });
+
+
+        slides[currentSlide].classList.add("active");
+        dots[currentSlide].classList.add("active");
+
+    }
+
+
+    function changeSlide(direction) {
+
+        showSlide(currentSlide + direction);
+
+        resetTimer();
+
+    }
+
+
+    function goToSlide(index) {
+
+        showSlide(index);
+
+        resetTimer();
+
+    }
+
+
+    let slideTimer = setInterval(() => {
+
+        showSlide(currentSlide + 1);
+
+    }, 4000);
+
+
+    function resetTimer() {
+
+        clearInterval(slideTimer);
+
+        slideTimer = setInterval(() => {
+
+            showSlide(currentSlide + 1);
+
+        }, 4000);
+
+    }
+
+</script>
+
 
 </body>
 </html>
-```
