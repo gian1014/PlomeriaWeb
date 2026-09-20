@@ -1,0 +1,944 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Plomería Profesional | Mar del Plata</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #17202a;
+            background: #ffffff;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: white;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        .navbar {
+            max-width: 1200px;
+            height: 75px;
+            margin: auto;
+            padding: 0 25px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 800;
+            color: #123b5d;
+        }
+
+        .logo span {
+            color: #168ac2;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #263746;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            color: #168ac2;
+        }
+
+        .hero {
+            min-height: 750px;
+            padding: 150px 25px 80px;
+
+            display: flex;
+            align-items: center;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(7,28,45,0.92),
+                    rgba(7,28,45,0.55)
+                ),
+                url("https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=1800&q=85")
+                center/cover;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            width: 100%;
+            margin: auto;
+        }
+
+        .hero-small {
+            color: #82d4ff;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            max-width: 800px;
+            font-size: clamp(42px, 6vw, 72px);
+            line-height: 1.05;
+            margin-bottom: 25px;
+        }
+
+        .hero p {
+            max-width: 650px;
+            font-size: 19px;
+            line-height: 1.6;
+            color: #e4edf2;
+            margin-bottom: 35px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 15px 25px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .button-primary {
+            background: #168ac2;
+            color: white;
+        }
+
+        .button-secondary {
+            border: 1px solid white;
+            color: white;
+        }
+
+        .stats {
+            background: #123b5d;
+            color: white;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .stat {
+            padding: 30px 20px;
+            text-align: center;
+            border-right: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .stat:last-child {
+            border-right: none;
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 25px;
+            margin-bottom: 5px;
+        }
+
+        .stat span {
+            color: #cbdbe6;
+            font-size: 14px;
+        }
+
+        section {
+            padding: 100px 25px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .label {
+            color: #168ac2;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #123b5d;
+            font-size: clamp(32px, 4vw, 48px);
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            max-width: 700px;
+            color: #68727c;
+            font-size: 17px;
+        }
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .about-image {
+            min-height: 500px;
+
+            background:
+                url("https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=1000&q=85")
+                center/cover;
+
+            border-radius: 10px;
+        }
+
+        .about-text p {
+            color: #68727c;
+            line-height: 1.8;
+            margin-bottom: 18px;
+        }
+
+        .services {
+            background: #f4f6f8;
+        }
+
+        .services-grid {
+            margin-top: 45px;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .service {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #e5e9ec;
+            transition: 0.3s;
+        }
+
+        .service:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+        }
+
+        .service-image {
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .service-content {
+            padding: 25px;
+        }
+
+        .service h3 {
+            color: #123b5d;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .service p {
+            color: #68727c;
+            line-height: 1.6;
+        }
+
+        .projects-grid {
+            margin-top: 45px;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .project {
+            height: 280px;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.4s;
+        }
+
+        .project:hover img {
+            transform: scale(1.06);
+        }
+
+        .project-title {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+
+            padding: 25px;
+            color: white;
+
+            background: linear-gradient(
+                transparent,
+                rgba(0,0,0,0.85)
+            );
+        }
+
+        .works {
+            background: #0b263d;
+            color: white;
+        }
+
+        .works h2 {
+            color: white;
+        }
+
+        .works .description {
+            color: #bdcbd5;
+        }
+
+        .works-grid {
+            margin-top: 45px;
+
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .work {
+            padding: 25px;
+            border-radius: 8px;
+
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.12);
+        }
+
+        .work h3 {
+            margin-bottom: 8px;
+        }
+
+        .work p {
+            color: #aebec9;
+        }
+
+        .cta {
+            text-align: center;
+            color: white;
+
+            background:
+                linear-gradient(
+                    rgba(15,85,120,0.95),
+                    rgba(8,48,73,0.95)
+                );
+        }
+
+        .cta h2 {
+            color: white;
+        }
+
+        .cta p {
+            max-width: 650px;
+            margin: 0 auto 30px;
+            color: #dcebf3;
+        }
+
+        .contact {
+            background: #f5f7f9;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .contact-info {
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            margin-bottom: 25px;
+        }
+
+        .contact-item span {
+            display: block;
+            color: #168ac2;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-item strong {
+            color: #123b5d;
+            font-size: 20px;
+        }
+
+        .contact-box {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        footer {
+            background: #081d2d;
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+        footer p {
+            color: #9eabb5;
+        }
+
+        .whatsapp {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+
+            width: 60px;
+            height: 60px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: #25D366;
+            color: white;
+
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+
+            z-index: 2000;
+        }
+
+        @media(max-width: 850px) {
+
+            nav {
+                display: none;
+            }
+
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid,
+            .projects-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .works-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media(max-width: 600px) {
+
+            .hero {
+                min-height: 680px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            section {
+                padding: 70px 20px;
+            }
+
+            .services-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                min-height: 350px;
+            }
+
+            .contact-box {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="navbar">
+
+        <div class="logo">
+            TU<span>EMPRESA</span>
+        </div>
+
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#empresa">Empresa</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#trabajos">Trabajos</a>
+            <a href="#obras">Obras</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+
+    </div>
+
+</header>
+
+
+<section class="hero" id="inicio">
+
+    <div class="hero-content">
+
+        <div class="hero-small">
+            Mar del Plata y zona
+        </div>
+
+        <h1>
+            Soluciones profesionales
+            en plomería, gas y calefacción.
+        </h1>
+
+        <p>
+            Instalaciones, reparaciones y obras completas
+            para viviendas, comercios, empresas y proyectos
+            de construcción.
+        </p>
+
+        <div class="buttons">
+
+            <a href="#contacto"
+               class="button button-primary">
+                Solicitar presupuesto
+            </a>
+
+            <a href="https://wa.me/5492230000000"
+               class="button button-secondary">
+                WhatsApp
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<div class="stats">
+
+    <div class="stats-container">
+
+        <div class="stat">
+            <strong>+20</strong>
+            <span>Años de experiencia</span>
+        </div>
+
+        <div class="stat">
+            <strong>100%</strong>
+            <span>Compromiso</span>
+        </div>
+
+        <div class="stat">
+            <strong>Obras</strong>
+            <span>Residenciales y comerciales</span>
+        </div>
+
+        <div class="stat">
+            <strong>MDQ</strong>
+            <span>Mar del Plata y zona</span>
+        </div>
+
+    </div>
+
+</div>
+
+
+<section id="empresa">
+
+    <div class="container about">
+
+        <div class="about-image"></div>
+
+        <div class="about-text">
+
+            <div class="label">
+                Nuestra empresa
+            </div>
+
+            <h2>
+                Experiencia que se transforma en soluciones.
+            </h2>
+
+            <p>
+                Somos una empresa especializada en trabajos
+                de plomería, gas y calefacción, ofreciendo
+                soluciones para hogares, comercios y obras.
+            </p>
+
+            <p>
+                Trabajamos con responsabilidad, compromiso
+                y atención personalizada.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="services" id="servicios">
+
+    <div class="container">
+
+        <div class="label">
+            Lo que hacemos
+        </div>
+
+        <h2>
+            Nuestros servicios
+        </h2>
+
+        <p class="description">
+            Soluciones integrales para instalaciones,
+            mantenimiento y reparación.
+        </p>
+
+
+        <div class="services-grid">
+
+            <div class="service">
+
+                <div class="service-image"
+                     style="background-image:url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=900&q=80');">
+                </div>
+
+                <div class="service-content">
+
+                    <h3>Plomería</h3>
+
+                    <p>
+                        Instalaciones y reparaciones de agua,
+                        baños, cocinas y desagües.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="service">
+
+                <div class="service-image"
+                     style="background-image:url('https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=900&q=80');">
+                </div>
+
+                <div class="service-content">
+
+                    <h3>Gas</h3>
+
+                    <p>
+                        Instalaciones y reparación de
+                        cañerías y artefactos.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="service">
+
+                <div class="service-image"
+                     style="background-image:url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=80');">
+                </div>
+
+                <div class="service-content">
+
+                    <h3>Obras</h3>
+
+                    <p>
+                        Instalaciones completas para
+                        viviendas, edificios y comercios.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section id="trabajos">
+
+    <div class="container">
+
+        <div class="label">
+            Trabajos realizados
+        </div>
+
+        <h2>
+            Nuestro trabajo habla por nosotros.
+        </h2>
+
+        <p class="description">
+            Una selección de instalaciones y trabajos
+            realizados por nuestro equipo.
+        </p>
+
+
+        <div class="projects-grid">
+
+            <div class="project">
+
+                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=900&q=80">
+
+                <div class="project-title">
+                    Trabajo en obra
+                </div>
+
+            </div>
+
+
+            <div class="project">
+
+                <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=900&q=80">
+
+                <div class="project-title">
+                    Instalaciones residenciales
+                </div>
+
+            </div>
+
+
+            <div class="project">
+
+                <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=900&q=80">
+
+                <div class="project-title">
+                    Obras y proyectos
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="works" id="obras">
+
+    <div class="container">
+
+        <div class="label">
+            Experiencia profesional
+        </div>
+
+        <h2>
+            Trabajamos junto a profesionales y empresas.
+        </h2>
+
+        <p class="description">
+            Participamos en proyectos residenciales,
+            comerciales y de construcción.
+        </p>
+
+
+        <div class="works-grid">
+
+            <div class="work">
+                <h3>Edificios</h3>
+                <p>
+                    Instalaciones sanitarias y de gas.
+                </p>
+            </div>
+
+            <div class="work">
+                <h3>Constructoras</h3>
+                <p>
+                    Coordinación y ejecución de trabajos.
+                </p>
+            </div>
+
+            <div class="work">
+                <h3>Arquitectos</h3>
+                <p>
+                    Acompañamiento durante el proyecto.
+                </p>
+            </div>
+
+            <div class="work">
+                <h3>Comercios y empresas</h3>
+                <p>
+                    Instalaciones y mantenimiento.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="cta">
+
+    <div class="container">
+
+        <h2>
+            ¿Necesitás un presupuesto?
+        </h2>
+
+        <p>
+            Contanos qué trabajo necesitás realizar
+            y nos ponemos en contacto.
+        </p>
+
+        <a href="https://wa.me/5492230000000"
+           class="button button-primary">
+            Consultar por WhatsApp
+        </a>
+
+    </div>
+
+</section>
+
+
+<section class="contact" id="contacto">
+
+    <div class="container contact-grid">
+
+        <div>
+
+            <div class="label">
+                Contacto
+            </div>
+
+            <h2>
+                Hablemos de tu proyecto.
+            </h2>
+
+            <p class="description">
+                Comunicate con nosotros para solicitar
+                información o presupuesto.
+            </p>
+
+            <div class="contact-info">
+
+                <div class="contact-item">
+                    <span>WhatsApp / Teléfono</span>
+                    <strong>223 XXX XXXX</strong>
+                </div>
+
+                <div class="contact-item">
+                    <span>Email</span>
+                    <strong>contacto@tuempresa.com</strong>
+                </div>
+
+                <div class="contact-item">
+                    <span>Zona</span>
+                    <strong>Mar del Plata y zona</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="contact-box">
+
+            <h3>
+                Solicitar presupuesto
+            </h3>
+
+            <p>
+                Para una respuesta rápida,
+                escribinos directamente por WhatsApp.
+            </p>
+
+            <a href="https://wa.me/5492230000000"
+               class="button button-primary">
+                Escribir por WhatsApp
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <p>
+        © 2026 TU EMPRESA — Plomería, Gas y Calefacción.
+        Mar del Plata, Buenos Aires.
+    </p>
+
+</footer>
+
+
+<a
+    class="whatsapp"
+    href="https://wa.me/5492230000000">
+    W
+</a>
+
+</body>
+</html>
+```
