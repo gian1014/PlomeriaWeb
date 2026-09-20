@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>NgpInstalaciones | Plomería, Gas y Calefacción | Mar del Plata</title>
+    <title>NgpInstalaciones | Plomería, Gas y Calefacción en Mar del Plata</title>
+
+    <meta
+        name="description"
+        content="NgpInstalaciones. Soluciones profesionales en plomería, gas y calefacción en Mar del Plata y zona."
+    >
 
     <style>
         * {
@@ -19,209 +24,246 @@
 
         body {
             font-family: Arial, Helvetica, sans-serif;
-            color: #17202a;
+            color: #1f2937;
             background: #ffffff;
+            line-height: 1.6;
         }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
 
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            background: white;
+            height: 82px;
+            background: rgba(255, 255, 255, 0.97);
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
         }
 
-        .navbar {
-            max-width: 1200px;
-            height: 75px;
-            margin: auto;
-            padding: 0 25px;
-
+        .header-container {
+            width: 100%;
+            height: 100%;
+            padding: 0 2%;
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
 
-        /* LOGO */
-
         .logo-link {
             display: flex;
             align-items: center;
-            text-decoration: none;
+            height: 100%;
         }
 
         .logo-img {
-            height: 55px;
+            height: 60px;
             width: auto;
-            max-width: 220px;
             object-fit: contain;
         }
 
         nav {
             display: flex;
-            gap: 25px;
+            align-items: center;
+            gap: 28px;
         }
 
         nav a {
-            text-decoration: none;
-            color: #263746;
+            font-size: 15px;
             font-weight: 600;
+            color: #1f2937;
+            transition: color 0.25s ease;
         }
 
         nav a:hover {
-            color: #168ac2;
+            color: #0b63ce;
         }
 
+        .nav-button {
+            background: #0b63ce;
+            color: #ffffff !important;
+            padding: 11px 20px;
+            border-radius: 7px;
+        }
+
+        .nav-button:hover {
+            background: #084c9e;
+        }
 
         /* =========================
-           HERO + CARRUSEL
+           HERO / CARRUSEL
         ========================= */
 
         .hero {
-            min-height: 750px;
-            padding: 150px 25px 80px;
-
             position: relative;
+            height: 720px;
+            min-height: 650px;
             overflow: hidden;
-
             display: flex;
             align-items: center;
-
-            color: white;
         }
 
         .hero-slider {
             position: absolute;
             inset: 0;
-            z-index: 0;
+            width: 100%;
+            height: 100%;
         }
 
         .hero-slide {
             position: absolute;
             inset: 0;
-
-            background-position: center;
+            width: 100%;
+            height: 100%;
             background-size: cover;
-            background-repeat: no-repeat;
-
+            background-position: center;
             opacity: 0;
-            transition: opacity 1s ease-in-out;
+            transform: scale(1.02);
+            transition:
+                opacity 1s ease-in-out,
+                transform 5s ease;
         }
 
         .hero-slide.active {
             opacity: 1;
+            transform: scale(1);
         }
 
         .hero-overlay {
             position: absolute;
             inset: 0;
-
             background:
                 linear-gradient(
                     90deg,
-                    rgba(7,28,45,0.92),
-                    rgba(7,28,45,0.55)
+                    rgba(0, 0, 0, 0.78) 0%,
+                    rgba(0, 0, 0, 0.52) 45%,
+                    rgba(0, 0, 0, 0.22) 100%
                 );
-
-            z-index: 1;
+            z-index: 2;
         }
 
         .hero-content {
+            position: relative;
+            z-index: 5;
             max-width: 1200px;
             width: 100%;
-            margin: auto;
-
-            position: relative;
-            z-index: 3;
+            margin: 0 auto;
+            padding: 0 5%;
+            color: #ffffff;
         }
 
-        .hero-small {
-            color: #82d4ff;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-
-        .hero h1 {
-            max-width: 800px;
-            font-size: clamp(42px, 6vw, 72px);
-            line-height: 1.05;
+        .hero-content h1 {
+            max-width: 750px;
+            font-size: clamp(42px, 5vw, 72px);
+            line-height: 1.08;
             margin-bottom: 25px;
+            font-weight: 800;
         }
 
-        .hero p {
+        .hero-content p {
             max-width: 650px;
-            font-size: 19px;
-            line-height: 1.6;
-            color: #e4edf2;
-            margin-bottom: 35px;
+            font-size: 21px;
+            margin-bottom: 32px;
+            color: rgba(255, 255, 255, 0.93);
         }
 
-        .buttons {
+        .hero-location {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 25px;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .hero-buttons {
             display: flex;
-            gap: 15px;
+            gap: 14px;
             flex-wrap: wrap;
         }
 
-        .button {
-            display: inline-block;
-            padding: 15px 25px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: bold;
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 25px;
+            border-radius: 7px;
+            font-weight: 700;
+            transition:
+                transform 0.25s ease,
+                background 0.25s ease;
         }
 
-        .button-primary {
-            background: #168ac2;
-            color: white;
+        .btn:hover {
+            transform: translateY(-2px);
         }
 
-        .button-secondary {
-            border: 1px solid white;
-            color: white;
+        .btn-primary {
+            background: #0b63ce;
+            color: #ffffff;
         }
 
-        .button:hover {
-            opacity: 0.9;
+        .btn-primary:hover {
+            background: #084c9e;
         }
 
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            color: #ffffff;
+            backdrop-filter: blur(5px);
+        }
 
-        /* FLECHAS DEL CARRUSEL */
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Flechas del carrusel */
 
         .slider-arrow {
             position: absolute;
-
             top: 50%;
             transform: translateY(-50%);
+            z-index: 10;
 
             width: 48px;
             height: 48px;
 
+            border: 1px solid rgba(255, 255, 255, 0.5);
             border-radius: 50%;
-            border: 1px solid rgba(255,255,255,0.5);
 
-            background: rgba(0,0,0,0.25);
+            background: rgba(0, 0, 0, 0.25);
+            color: #ffffff;
 
-            color: white;
-            font-size: 28px;
+            font-size: 32px;
+            line-height: 40px;
 
             cursor: pointer;
-
-            z-index: 4;
 
             display: flex;
             align-items: center;
             justify-content: center;
 
-            transition: 0.3s;
+            transition:
+                background 0.25s ease,
+                transform 0.25s ease;
         }
 
         .slider-arrow:hover {
-            background: rgba(22,138,194,0.9);
-            border-color: #168ac2;
+            background: rgba(0, 0, 0, 0.5);
         }
 
         .slider-prev {
@@ -232,501 +274,611 @@
             right: 25px;
         }
 
-
-        /* INDICADORES */
+        /* Puntos */
 
         .slider-dots {
             position: absolute;
+            z-index: 10;
 
-            bottom: 35px;
+            bottom: 30px;
             left: 50%;
 
             transform: translateX(-50%);
 
             display: flex;
             gap: 9px;
-
-            z-index: 4;
         }
 
         .slider-dot {
-            width: 10px;
-            height: 10px;
+            width: 11px;
+            height: 11px;
 
+            padding: 0;
+            border: none;
             border-radius: 50%;
 
-            border: none;
-
-            background: rgba(255,255,255,0.5);
+            background: rgba(255, 255, 255, 0.5);
 
             cursor: pointer;
 
-            transition: 0.3s;
+            transition:
+                width 0.25s ease,
+                background 0.25s ease;
         }
 
         .slider-dot.active {
-            background: white;
-            transform: scale(1.2);
+            width: 28px;
+            border-radius: 10px;
+            background: #ffffff;
         }
 
-
         /* =========================
-           ESTADISTICAS
+           ESTADÍSTICAS
         ========================= */
 
         .stats {
-            background: #123b5d;
-            color: white;
+            background: #ffffff;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            position: relative;
+            z-index: 20;
         }
 
         .stats-container {
             max-width: 1200px;
-            margin: auto;
+            margin: 0 auto;
+            padding: 32px 5%;
 
             display: grid;
             grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
         }
 
         .stat {
-            padding: 30px 20px;
             text-align: center;
-            border-right: 1px solid rgba(255,255,255,0.15);
+            padding: 10px;
         }
 
-        .stat:last-child {
-            border-right: none;
-        }
-
-        .stat strong {
-            display: block;
-            font-size: 25px;
+        .stat-number {
+            font-size: 32px;
+            font-weight: 800;
+            color: #0b63ce;
             margin-bottom: 5px;
         }
 
-        .stat span {
-            color: #cbdbe6;
+        .stat-text {
+            color: #6b7280;
             font-size: 14px;
         }
 
-
         /* =========================
-           GENERAL
+           SECCIONES
         ========================= */
 
-        section {
-            padding: 100px 25px;
+        section:not(.hero) {
+            scroll-margin-top: 90px;
         }
 
-        .container {
+        .section {
+            padding: 90px 5%;
+        }
+
+        .section-container {
             max-width: 1200px;
-            margin: auto;
+            margin: 0 auto;
         }
 
-        .label {
-            color: #168ac2;
-            font-size: 13px;
-            font-weight: bold;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+        .section-header {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 55px;
+        }
+
+        .section-header span {
+            display: inline-block;
             margin-bottom: 10px;
+
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+
+            color: #0b63ce;
         }
 
-        h2 {
-            color: #123b5d;
-            font-size: clamp(32px, 4vw, 48px);
-            line-height: 1.1;
-            margin-bottom: 20px;
+        .section-header h2 {
+            font-size: 40px;
+            line-height: 1.2;
+            margin-bottom: 15px;
+            color: #111827;
         }
 
-        .description {
-            max-width: 700px;
-            color: #68727c;
+        .section-header p {
+            color: #6b7280;
             font-size: 17px;
         }
 
-
         /* =========================
-           EMPRESA
+           NOSOTROS
         ========================= */
 
         .about {
+            background: #f7f9fc;
+        }
+
+        .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 70px;
+            gap: 60px;
             align-items: center;
         }
 
         .about-image {
-            min-height: 500px;
-
+            min-height: 450px;
+            border-radius: 12px;
             background:
-                url("https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=1000&q=85")
-                center/cover;
-
-            border-radius: 10px;
+                url("https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=85")
+                center / cover;
         }
 
-        .about-text p {
-            color: #68727c;
-            line-height: 1.8;
+        .about-content h3 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #111827;
+        }
+
+        .about-content p {
+            color: #6b7280;
             margin-bottom: 18px;
         }
 
+        .about-list {
+            list-style: none;
+            margin-top: 25px;
+        }
+
+        .about-list li {
+            margin-bottom: 13px;
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .about-list li::before {
+            content: "✓";
+            color: #0b63ce;
+            font-weight: 800;
+            margin-right: 10px;
+        }
 
         /* =========================
            SERVICIOS
         ========================= */
 
-        .services {
-            background: #f4f6f8;
-        }
-
         .services-grid {
-            margin-top: 45px;
-
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 22px;
+            gap: 25px;
         }
 
-        .service {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            border: 1px solid #e5e9ec;
-            transition: 0.3s;
+        .service-card {
+            padding: 35px 30px;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            background: #ffffff;
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
         }
 
-        .service:hover {
+        .service-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
         }
 
-        .service-image {
-            height: 220px;
-            background-size: cover;
-            background-position: center;
+        .service-icon {
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin-bottom: 20px;
+
+            border-radius: 10px;
+            background: #eaf3ff;
+            color: #0b63ce;
+
+            font-size: 25px;
+            font-weight: 800;
         }
 
-        .service-content {
-            padding: 25px;
+        .service-card h3 {
+            font-size: 21px;
+            margin-bottom: 12px;
+            color: #111827;
         }
 
-        .service h3 {
-            color: #123b5d;
-            font-size: 22px;
-            margin-bottom: 10px;
+        .service-card p {
+            color: #6b7280;
+            font-size: 15px;
         }
-
-        .service p {
-            color: #68727c;
-            line-height: 1.6;
-        }
-
 
         /* =========================
-           TRABAJOS
+           PROYECTOS
         ========================= */
 
-        .projects-grid {
-            margin-top: 45px;
+        .projects {
+            background: #f7f9fc;
+        }
 
+        .projects-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
+            gap: 20px;
         }
 
-        .project {
-            height: 280px;
-            border-radius: 8px;
-            overflow: hidden;
+        .project-card {
             position: relative;
+            height: 300px;
+            overflow: hidden;
+            border-radius: 12px;
+            background: #ddd;
         }
 
-        .project img {
+        .project-card img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: 0.4s;
+            transition: transform 0.5s ease;
         }
 
-        .project:hover img {
+        .project-card:hover img {
             transform: scale(1.06);
         }
 
-        .project-title {
+        .project-overlay {
             position: absolute;
-            bottom: 0;
             left: 0;
-            width: 100%;
+            right: 0;
+            bottom: 0;
 
             padding: 25px;
-            color: white;
 
-            background: linear-gradient(
-                transparent,
-                rgba(0,0,0,0.85)
-            );
+            color: #ffffff;
+
+            background:
+                linear-gradient(
+                    transparent,
+                    rgba(0, 0, 0, 0.8)
+                );
         }
 
+        .project-overlay h3 {
+            font-size: 19px;
+            margin-bottom: 4px;
+        }
+
+        .project-overlay p {
+            font-size: 13px;
+            opacity: 0.9;
+        }
 
         /* =========================
-           OBRAS
+           PROFESIONALES / EMPRESAS
         ========================= */
 
-        .works {
-            background: #0b263d;
-            color: white;
-        }
-
-        .works h2 {
-            color: white;
-        }
-
-        .works .description {
-            color: #bdcbd5;
-        }
-
-        .works-grid {
-            margin-top: 45px;
-
+        .professionals-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
         }
 
-        .work {
-            padding: 25px;
-            border-radius: 8px;
+        .professional-card {
+            padding: 30px 20px;
+            text-align: center;
 
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.12);
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
 
-            transition: 0.3s;
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
         }
 
-        .work:hover {
-            transform: translateY(-5px);
-            background: rgba(255,255,255,0.10);
+        .professional-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.07);
         }
 
-        .work h3 {
+        .professional-icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .professional-card h3 {
+            font-size: 18px;
             margin-bottom: 8px;
+            color: #111827;
         }
 
-        .work p {
-            color: #aebec9;
+        .professional-card p {
+            color: #6b7280;
+            font-size: 14px;
         }
-
 
         /* =========================
            CTA
         ========================= */
 
         .cta {
-            text-align: center;
-            color: white;
+            padding: 85px 5%;
+            background: #0b63ce;
+            color: #ffffff;
+        }
 
-            background:
-                linear-gradient(
-                    rgba(15,85,120,0.95),
-                    rgba(8,48,73,0.95)
-                );
+        .cta-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
         }
 
         .cta h2 {
-            color: white;
+            font-size: 42px;
+            line-height: 1.2;
+            margin-bottom: 18px;
         }
 
         .cta p {
-            max-width: 650px;
+            max-width: 700px;
             margin: 0 auto 30px;
-            color: #dcebf3;
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.9);
         }
 
+        .cta .btn {
+            background: #ffffff;
+            color: #0b63ce;
+        }
+
+        .cta .btn:hover {
+            background: #f1f5f9;
+        }
 
         /* =========================
            CONTACTO
         ========================= */
 
-        .contact {
-            background: #f5f7f9;
-        }
-
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            gap: 50px;
         }
 
-        .contact-info {
-            margin-top: 30px;
+        .contact-info h3 {
+            font-size: 30px;
+            margin-bottom: 18px;
+            color: #111827;
+        }
+
+        .contact-info > p {
+            color: #6b7280;
+            margin-bottom: 30px;
         }
 
         .contact-item {
-            margin-bottom: 25px;
+            display: flex;
+            gap: 15px;
+            margin-bottom: 22px;
         }
 
-        .contact-item span {
-            display: block;
-            color: #168ac2;
-            font-size: 12px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .contact-icon {
+            width: 45px;
+            height: 45px;
+            min-width: 45px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #eaf3ff;
+            color: #0b63ce;
+
+            border-radius: 8px;
+            font-weight: 800;
         }
 
-        .contact-item strong {
-            color: #123b5d;
-            font-size: 20px;
+        .contact-item h4 {
+            margin-bottom: 3px;
+            color: #111827;
+        }
+
+        .contact-item p {
+            color: #6b7280;
         }
 
         .contact-box {
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            padding: 35px;
+            border-radius: 12px;
+            background: #f7f9fc;
         }
 
+        .contact-box h3 {
+            margin-bottom: 15px;
+            font-size: 25px;
+        }
+
+        .contact-box p {
+            color: #6b7280;
+            margin-bottom: 25px;
+        }
 
         /* =========================
            FOOTER
         ========================= */
 
         footer {
-            background: #081d2d;
-            color: white;
+            background: #111827;
+            color: #ffffff;
+            padding: 45px 5% 25px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 30px;
+        }
+
+        .footer-logo {
+            font-size: 22px;
+            font-weight: 800;
+        }
+
+        .footer-text {
+            color: #9ca3af;
+            font-size: 14px;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 30px auto 0;
+            padding-top: 20px;
+
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+            color: #6b7280;
+            font-size: 13px;
             text-align: center;
-            padding: 35px 20px;
         }
-
-        footer p {
-            color: #9eabb5;
-        }
-
 
         /* =========================
            WHATSAPP
         ========================= */
 
-        .whatsapp {
+        .whatsapp-float {
             position: fixed;
             right: 22px;
             bottom: 22px;
 
-            width: 60px;
-            height: 60px;
+            width: 58px;
+            height: 58px;
 
             display: flex;
             align-items: center;
             justify-content: center;
 
+            background: #25d366;
+            color: #ffffff;
+
             border-radius: 50%;
 
-            background: #25D366;
-            color: white;
+            font-size: 25px;
+            font-weight: 800;
 
-            text-decoration: none;
-            font-size: 24px;
-            font-weight: bold;
+            z-index: 1000;
 
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 
-            z-index: 2000;
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
         }
 
+        .whatsapp-float:hover {
+            transform: scale(1.08);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+        }
 
         /* =========================
-           TABLET
+           RESPONSIVE
         ========================= */
 
-        @media(max-width: 850px) {
+        @media (max-width: 900px) {
+
+            .header-container {
+                padding: 0 3%;
+            }
 
             nav {
+                gap: 15px;
+            }
+
+            nav a:not(.nav-button) {
                 display: none;
+            }
+
+            .hero {
+                height: 680px;
             }
 
             .stats-container {
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .about,
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .professionals-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
             .contact-grid {
                 grid-template-columns: 1fr;
             }
-
-            .services-grid,
-            .projects-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .works-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .slider-arrow {
-                width: 42px;
-                height: 42px;
-            }
-
-            .slider-prev {
-                left: 15px;
-            }
-
-            .slider-next {
-                right: 15px;
-            }
         }
 
+        @media (max-width: 600px) {
 
-        /* =========================
-           CELULAR
-        ========================= */
+            header {
+                height: 72px;
+            }
 
-        @media(max-width: 600px) {
-
-            .navbar {
-                height: 70px;
+            .header-container {
+                padding: 0 3%;
             }
 
             .logo-img {
-                height: 48px;
-                max-width: 180px;
+                height: 50px;
+            }
+
+            .nav-button {
+                padding: 9px 13px;
+                font-size: 13px;
             }
 
             .hero {
-                min-height: 680px;
+                height: 680px;
+                min-height: 600px;
             }
 
-            .hero h1 {
+            .hero-content {
+                padding: 0 7%;
+            }
+
+            .hero-content h1 {
                 font-size: 42px;
             }
 
-            .hero p {
+            .hero-content p {
                 font-size: 17px;
             }
 
-            section {
-                padding: 70px 20px;
-            }
-
-            .services-grid,
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .about-image {
-                min-height: 350px;
-            }
-
-            .contact-box {
-                padding: 25px;
-            }
-
             .slider-arrow {
-                width: 38px;
-                height: 38px;
-                font-size: 22px;
+                width: 40px;
+                height: 40px;
+                font-size: 25px;
             }
 
             .slider-prev {
@@ -737,8 +889,56 @@
                 right: 10px;
             }
 
-            .slider-dots {
-                bottom: 20px;
+            .stats-container {
+                grid-template-columns: 1fr 1fr;
+                padding: 25px 3%;
+                gap: 10px;
+            }
+
+            .stat-number {
+                font-size: 26px;
+            }
+
+            .section {
+                padding: 65px 6%;
+            }
+
+            .section-header h2 {
+                font-size: 32px;
+            }
+
+            .services-grid,
+            .projects-grid,
+            .professionals-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                min-height: 300px;
+            }
+
+            .cta {
+                padding: 65px 6%;
+            }
+
+            .cta h2 {
+                font-size: 32px;
+            }
+
+            .contact-box {
+                padding: 25px;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .whatsapp-float {
+                width: 54px;
+                height: 54px;
+                right: 15px;
+                bottom: 15px;
             }
         }
     </style>
@@ -746,747 +946,859 @@
 
 <body>
 
+    <!-- =========================
+         HEADER
+    ========================== -->
 
-<header>
+    <header>
+        <div class="header-container">
 
-    <div class="navbar">
+            <a href="#inicio" class="logo-link">
+                <img
+                    src="imagenes/logo.png"
+                    alt="NgpInstalaciones"
+                    class="logo-img"
+                >
+            </a>
 
-        <a href="#inicio" class="logo-link">
+            <nav>
+                <a href="#inicio">Inicio</a>
+                <a href="#nosotros">Nosotros</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#proyectos">Proyectos</a>
+                <a href="#contacto">Contacto</a>
 
-            <!--
-                LOGO:
-                Subí tu archivo a:
-                imagenes/logo.png
-            -->
+                <a
+                    href="https://wa.me/5492235479235"
+                    target="_blank"
+                    class="nav-button"
+                >
+                    WhatsApp
+                </a>
+            </nav>
 
-            <img
-                src="imagenes/logo.png"
-                alt="NgpInstalaciones"
-                class="logo-img"
+        </div>
+    </header>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="hero" id="inicio">
+
+        <div class="hero-slider">
+
+            <div
+                class="hero-slide active"
+                style="background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1800&q=85');"
+            ></div>
+
+            <div
+                class="hero-slide"
+                style="background-image: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1800&q=85');"
+            ></div>
+
+            <div
+                class="hero-slide"
+                style="background-image: url('https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=1800&q=85');"
+            ></div>
+
+            <div
+                class="hero-slide"
+                style="background-image: url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1800&q=85');"
+            ></div>
+
+        </div>
+
+        <div class="hero-overlay"></div>
+
+
+        <div class="hero-content">
+
+            <div class="hero-location">
+                📍 Mar del Plata y zona
+            </div>
+
+            <h1>
+                Soluciones profesionales en plomería, gas y calefacción.
+            </h1>
+
+            <p>
+                Instalaciones, reparaciones y proyectos realizados
+                con compromiso, experiencia y atención profesional.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a
+                    href="https://wa.me/5492235479235?text=Hola,%20quiero%20hacer%20una%20consulta."
+                    target="_blank"
+                    class="btn btn-primary"
+                >
+                    Solicitar presupuesto
+                </a>
+
+                <a
+                    href="#servicios"
+                    class="btn btn-secondary"
+                >
+                    Ver servicios
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- Flechas -->
+
+        <button
+            class="slider-arrow slider-prev"
+            onclick="changeSlide(-1)"
+            aria-label="Imagen anterior"
+        >
+            ‹
+        </button>
+
+        <button
+            class="slider-arrow slider-next"
+            onclick="changeSlide(1)"
+            aria-label="Imagen siguiente"
+        >
+            ›
+        </button>
+
+
+        <!-- Puntos -->
+
+        <div class="slider-dots">
+
+            <button
+                class="slider-dot active"
+                onclick="goToSlide(0)"
+                aria-label="Imagen 1"
+            ></button>
+
+            <button
+                class="slider-dot"
+                onclick="goToSlide(1)"
+                aria-label="Imagen 2"
+            ></button>
+
+            <button
+                class="slider-dot"
+                onclick="goToSlide(2)"
+                aria-label="Imagen 3"
+            ></button>
+
+            <button
+                class="slider-dot"
+                onclick="goToSlide(3)"
+                aria-label="Imagen 4"
+            ></button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ESTADÍSTICAS
+    ========================== -->
+
+    <section class="stats">
+
+        <div class="stats-container">
+
+            <div class="stat">
+                <div class="stat-number">+10</div>
+                <div class="stat-text">Años de experiencia</div>
+            </div>
+
+            <div class="stat">
+                <div class="stat-number">100%</div>
+                <div class="stat-text">Compromiso</div>
+            </div>
+
+            <div class="stat">
+                <div class="stat-number">Obras</div>
+                <div class="stat-text">Residenciales y comerciales</div>
+            </div>
+
+            <div class="stat">
+                <div class="stat-number">MDQ</div>
+                <div class="stat-text">Mar del Plata y zona</div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         NOSOTROS
+    ========================== -->
+
+    <section class="section about" id="nosotros">
+
+        <div class="section-container">
+
+            <div class="section-header">
+
+                <span>Sobre nosotros</span>
+
+                <h2>
+                    Experiencia y compromiso en cada instalación
+                </h2>
+
+                <p>
+                    Trabajamos para brindar soluciones confiables,
+                    prolijas y adaptadas a las necesidades de cada proyecto.
+                </p>
+
+            </div>
+
+
+            <div class="about-grid">
+
+                <div class="about-image"></div>
+
+                <div class="about-content">
+
+                    <h3>
+                        Soluciones pensadas para cada proyecto
+                    </h3>
+
+                    <p>
+                        En NgpInstalaciones nos especializamos en trabajos
+                        de plomería, gas y calefacción para viviendas,
+                        comercios, edificios y obras.
+                    </p>
+
+                    <p>
+                        Nos enfocamos en realizar cada trabajo con
+                        responsabilidad, atención al detalle y una
+                        ejecución profesional.
+                    </p>
+
+                    <ul class="about-list">
+
+                        <li>
+                            Trabajos residenciales y comerciales
+                        </li>
+
+                        <li>
+                            Instalaciones y reparaciones
+                        </li>
+
+                        <li>
+                            Atención personalizada
+                        </li>
+
+                        <li>
+                            Mar del Plata y zona
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SERVICIOS
+    ========================== -->
+
+    <section class="section" id="servicios">
+
+        <div class="section-container">
+
+            <div class="section-header">
+
+                <span>Servicios</span>
+
+                <h2>
+                    Soluciones profesionales
+                </h2>
+
+                <p>
+                    Realizamos instalaciones, reparaciones y mantenimiento
+                    en diferentes tipos de proyectos.
+                </p>
+
+            </div>
+
+
+            <div class="services-grid">
+
+                <div class="service-card">
+
+                    <div class="service-icon">💧</div>
+
+                    <h3>
+                        Plomería
+                    </h3>
+
+                    <p>
+                        Instalaciones, reparaciones y mantenimiento
+                        de sistemas de agua y desagües.
+                    </p>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-icon">🔥</div>
+
+                    <h3>
+                        Gas
+                    </h3>
+
+                    <p>
+                        Instalaciones y trabajos de gas realizados
+                        de acuerdo con las necesidades de cada proyecto.
+                    </p>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-icon">♨</div>
+
+                    <h3>
+                        Calefacción
+                    </h3>
+
+                    <p>
+                        Soluciones para instalaciones y sistemas
+                        de calefacción.
+                    </p>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-icon">🏠</div>
+
+                    <h3>
+                        Obras residenciales
+                    </h3>
+
+                    <p>
+                        Trabajos de instalaciones para viviendas,
+                        remodelaciones y nuevas construcciones.
+                    </p>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-icon">🏢</div>
+
+                    <h3>
+                        Edificios
+                    </h3>
+
+                    <p>
+                        Instalaciones y trabajos para edificios
+                        y proyectos de mayor escala.
+                    </p>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-icon">🔧</div>
+
+                    <h3>
+                        Reparaciones
+                    </h3>
+
+                    <p>
+                        Solución de pérdidas, roturas y problemas
+                        en instalaciones existentes.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROYECTOS
+    ========================== -->
+
+    <section class="section projects" id="proyectos">
+
+        <div class="section-container">
+
+            <div class="section-header">
+
+                <span>Trabajos realizados</span>
+
+                <h2>
+                    Algunos de nuestros proyectos
+                </h2>
+
+                <p>
+                    Próximamente vamos a incorporar fotografías
+                    de trabajos reales realizados por NgpInstalaciones.
+                </p>
+
+            </div>
+
+
+            <div class="projects-grid">
+
+                <div class="project-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1000&q=85"
+                        alt="Trabajo de obra"
+                    >
+
+                    <div class="project-overlay">
+
+                        <h3>
+                            Instalaciones
+                        </h3>
+
+                        <p>
+                            Trabajos profesionales
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="project-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1000&q=85"
+                        alt="Proyecto de construcción"
+                    >
+
+                    <div class="project-overlay">
+
+                        <h3>
+                            Obras
+                        </h3>
+
+                        <p>
+                            Proyectos residenciales y comerciales
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="project-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=1000&q=85"
+                        alt="Instalación profesional"
+                    >
+
+                    <div class="project-overlay">
+
+                        <h3>
+                            Instalaciones
+                        </h3>
+
+                        <p>
+                            Calidad y compromiso
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROFESIONALES Y EMPRESAS
+    ========================== -->
+
+    <section class="section" id="profesionales">
+
+        <div class="section-container">
+
+            <div class="section-header">
+
+                <span>Profesionales y empresas</span>
+
+                <h2>
+                    Trabajamos junto a profesionales y empresas
+                </h2>
+
+                <p>
+                    Nos integramos a diferentes tipos de proyectos
+                    aportando experiencia y soluciones técnicas.
+                </p>
+
+            </div>
+
+
+            <div class="professionals-grid">
+
+                <div class="professional-card">
+
+                    <div class="professional-icon">
+                        🏢
+                    </div>
+
+                    <h3>
+                        Edificios
+                    </h3>
+
+                    <p>
+                        Instalaciones y trabajos para proyectos
+                        de edificios.
+                    </p>
+
+                </div>
+
+
+                <div class="professional-card">
+
+                    <div class="professional-icon">
+                        👷
+                    </div>
+
+                    <h3>
+                        Constructoras
+                    </h3>
+
+                    <p>
+                        Trabajo coordinado dentro de obras
+                        y nuevas construcciones.
+                    </p>
+
+                </div>
+
+
+                <div class="professional-card">
+
+                    <div class="professional-icon">
+                        📐
+                    </div>
+
+                    <h3>
+                        Arquitectos
+                    </h3>
+
+                    <p>
+                        Acompañamiento técnico para proyectos
+                        y reformas.
+                    </p>
+
+                </div>
+
+
+                <div class="professional-card">
+
+                    <div class="professional-icon">
+                        🏪
+                    </div>
+
+                    <h3>
+                        Comercios y empresas
+                    </h3>
+
+                    <p>
+                        Soluciones para locales, oficinas
+                        y establecimientos comerciales.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CTA
+    ========================== -->
+
+    <section class="cta">
+
+        <div class="cta-container">
+
+            <h2>
+                ¿Tenés un proyecto en mente?
+            </h2>
+
+            <p>
+                Contanos qué necesitás y coordinamos una visita
+                o presupuesto para tu proyecto.
+            </p>
+
+            <a
+                href="https://wa.me/5492235479235?text=Hola,%20quiero%20consultar%20por%20un%20trabajo."
+                target="_blank"
+                class="btn"
             >
-
-        </a>
-
-
-        <nav>
-
-            <a href="#inicio">Inicio</a>
-            <a href="#empresa">Empresa</a>
-            <a href="#servicios">Servicios</a>
-            <a href="#trabajos">Trabajos</a>
-            <a href="#obras">Obras</a>
-            <a href="#contacto">Contacto</a>
-
-        </nav>
-
-    </div>
-
-</header>
-
-
-
-<!-- =========================
-     INICIO + CARRUSEL
-========================= -->
-
-<section class="hero" id="inicio">
-
-
-    <!-- IMÁGENES DEL CARRUSEL -->
-
-    <div class="hero-slider">
-
-        <div
-            class="hero-slide active"
-            style="background-image:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1800&q=85');">
-        </div>
-
-        <div
-            class="hero-slide"
-            style="background-image:url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1800&q=85');">
-        </div>
-
-        <div
-            class="hero-slide"
-            style="background-image:url('https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=1800&q=85');">
-        </div>
-
-        <div
-            class="hero-slide"
-            style="background-image:url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1800&q=85');">
-        </div>
-
-    </div>
-
-
-    <!-- OSCURECIMIENTO -->
-
-    <div class="hero-overlay"></div>
-
-
-    <!-- CONTENIDO -->
-
-    <div class="hero-content">
-
-        <div class="hero-small">
-            Mar del Plata y zona
-        </div>
-
-        <h1>
-            Soluciones profesionales
-            en plomería, gas y calefacción.
-        </h1>
-
-        <p>
-            Instalaciones, reparaciones y obras completas
-            para viviendas, comercios, empresas y proyectos
-            de construcción.
-        </p>
-
-        <div class="buttons">
-
-            <a
-                href="#contacto"
-                class="button button-primary">
-                Solicitar presupuesto
-            </a>
-
-            <a
-                href="https://wa.me/5492235479235"
-                class="button button-secondary"
-                target="_blank">
-                WhatsApp
+                Hablemos de tu proyecto
             </a>
 
         </div>
 
-    </div>
+    </section>
 
 
-    <!-- FLECHA IZQUIERDA -->
+    <!-- =========================
+         CONTACTO
+    ========================== -->
 
-    <button
-        class="slider-arrow slider-prev"
-        onclick="changeSlide(-1)"
-        aria-label="Imagen anterior">
-        ‹
-    </button>
+    <section class="section" id="contacto">
 
+        <div class="section-container">
 
-    <!-- FLECHA DERECHA -->
+            <div class="section-header">
 
-    <button
-        class="slider-arrow slider-next"
-        onclick="changeSlide(1)"
-        aria-label="Imagen siguiente">
-        ›
-    </button>
+                <span>Contacto</span>
 
+                <h2>
+                    Estamos para ayudarte
+                </h2>
 
-    <!-- INDICADORES -->
+                <p>
+                    Comunicate con nosotros para realizar una consulta
+                    o solicitar un presupuesto.
+                </p>
 
-    <div class="slider-dots">
-
-        <button
-            class="slider-dot active"
-            onclick="goToSlide(0)"
-            aria-label="Imagen 1">
-        </button>
-
-        <button
-            class="slider-dot"
-            onclick="goToSlide(1)"
-            aria-label="Imagen 2">
-        </button>
-
-        <button
-            class="slider-dot"
-            onclick="goToSlide(2)"
-            aria-label="Imagen 3">
-        </button>
-
-        <button
-            class="slider-dot"
-            onclick="goToSlide(3)"
-            aria-label="Imagen 4">
-        </button>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================
-     ESTADISTICAS
-========================= -->
-
-<div class="stats">
-
-    <div class="stats-container">
-
-        <div class="stat">
-            <strong>+10</strong>
-            <span>Años de experiencia</span>
-        </div>
-
-        <div class="stat">
-            <strong>100%</strong>
-            <span>Compromiso</span>
-        </div>
-
-        <div class="stat">
-            <strong>Obras</strong>
-            <span>Residenciales y comerciales</span>
-        </div>
-
-        <div class="stat">
-            <strong>MDQ</strong>
-            <span>Mar del Plata y zona</span>
-        </div>
-
-    </div>
-
-</div>
-
-
-
-<!-- =========================
-     EMPRESA
-========================= -->
-
-<section id="empresa">
-
-    <div class="container about">
-
-        <div class="about-image"></div>
-
-        <div class="about-text">
-
-            <div class="label">
-                Nuestra empresa
             </div>
 
-            <h2>
-                Experiencia que se transforma en soluciones.
-            </h2>
 
-            <p>
-                Somos una empresa especializada en trabajos
-                de plomería, gas y calefacción, ofreciendo
-                soluciones para hogares, comercios y obras.
-            </p>
+            <div class="contact-grid">
 
-            <p>
-                Trabajamos con responsabilidad, compromiso
-                y atención personalizada.
-            </p>
+                <div class="contact-info">
 
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================
-     SERVICIOS
-========================= -->
-
-<section class="services" id="servicios">
-
-    <div class="container">
-
-        <div class="label">
-            Lo que hacemos
-        </div>
-
-        <h2>
-            Nuestros servicios
-        </h2>
-
-        <p class="description">
-            Soluciones integrales para instalaciones,
-            mantenimiento y reparación.
-        </p>
-
-
-        <div class="services-grid">
-
-
-            <div class="service">
-
-                <div
-                    class="service-image"
-                    style="background-image:url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=900&q=80');">
-                </div>
-
-                <div class="service-content">
-
-                    <h3>Plomería</h3>
+                    <h3>
+                        Hablemos
+                    </h3>
 
                     <p>
-                        Instalaciones y reparaciones de agua,
-                        baños, cocinas y desagües.
+                        Respondemos consultas sobre trabajos de
+                        plomería, gas, calefacción e instalaciones.
                     </p>
 
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+                            W
+                        </div>
+
+                        <div>
+
+                            <h4>
+                                WhatsApp
+                            </h4>
+
+                            <p>
+                                223 547-9235
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+                            📍
+                        </div>
+
+                        <div>
+
+                            <h4>
+                                Zona de trabajo
+                            </h4>
+
+                            <p>
+                                Mar del Plata y zona
+                            </p>
+
+                        </div>
+
+                    </div>
+
                 </div>
 
-            </div>
 
+                <div class="contact-box">
 
-
-            <div class="service">
-
-                <div
-                    class="service-image"
-                    style="background-image:url('https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=900&q=80');">
-                </div>
-
-                <div class="service-content">
-
-                    <h3>Gas</h3>
+                    <h3>
+                        Solicitar presupuesto
+                    </h3>
 
                     <p>
-                        Instalaciones y reparación de
-                        cañerías y artefactos.
+                        Para realizar una consulta, escribinos
+                        directamente por WhatsApp.
                     </p>
 
-                </div>
-
-            </div>
-
-
-
-            <div class="service">
-
-                <div
-                    class="service-image"
-                    style="background-image:url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=80');">
-                </div>
-
-                <div class="service-content">
-
-                    <h3>Obras</h3>
-
-                    <p>
-                        Instalaciones completas para
-                        viviendas, edificios y comercios.
-                    </p>
+                    <a
+                        href="https://wa.me/5492235479235?text=Hola,%20quiero%20solicitar%20un%20presupuesto."
+                        target="_blank"
+                        class="btn btn-primary"
+                    >
+                        Contactar por WhatsApp
+                    </a>
 
                 </div>
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================
-     TRABAJOS
-========================= -->
-
-<section id="trabajos">
-
-    <div class="container">
-
-        <div class="label">
-            Trabajos realizados
-        </div>
-
-        <h2>
-            Nuestro trabajo habla por nosotros.
-        </h2>
-
-        <p class="description">
-            Una selección de instalaciones y trabajos
-            realizados por nuestro equipo.
-        </p>
-
-
-        <div class="projects-grid">
-
-
-            <div class="project">
-
-                <img
-                    src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=900&q=80"
-                    alt="Trabajo en obra">
-
-                <div class="project-title">
-                    Trabajo en obra
-                </div>
-
-            </div>
-
-
-
-            <div class="project">
-
-                <img
-                    src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=900&q=80"
-                    alt="Instalaciones residenciales">
-
-                <div class="project-title">
-                    Instalaciones residenciales
-                </div>
-
-            </div>
-
-
-
-            <div class="project">
-
-                <img
-                    src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=900&q=80"
-                    alt="Obras y proyectos">
-
-                <div class="project-title">
-                    Obras y proyectos
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================
-     OBRAS
-========================= -->
-
-<section class="works" id="obras">
-
-    <div class="container">
-
-        <div class="label">
-            Experiencia profesional
-        </div>
-
-        <h2>
-            Trabajamos junto a profesionales y empresas.
-        </h2>
-
-        <p class="description">
-            Participamos en proyectos residenciales,
-            comerciales y de construcción.
-        </p>
-
-
-        <div class="works-grid">
-
-
-            <div class="work">
-
-                <h3>Edificios</h3>
-
-                <p>
-                    Instalaciones sanitarias y de gas.
-                </p>
-
-            </div>
-
-
-
-            <div class="work">
-
-                <h3>Constructoras</h3>
-
-                <p>
-                    Coordinación y ejecución de trabajos.
-                </p>
-
-            </div>
-
-
-
-            <div class="work">
-
-                <h3>Arquitectos</h3>
-
-                <p>
-                    Acompañamiento durante el proyecto.
-                </p>
-
-            </div>
-
-
-
-            <div class="work">
-
-                <h3>Comercios y empresas</h3>
-
-                <p>
-                    Instalaciones y mantenimiento.
-                </p>
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================
-     CTA
-========================= -->
-
-<section class="cta">
-
-    <div class="container">
-
-        <h2>
-            ¿Necesitás un presupuesto?
-        </h2>
-
-        <p>
-            Contanos qué trabajo necesitás realizar
-            y nos ponemos en contacto.
-        </p>
-
-        <a
-            href="https://wa.me/5492235479235"
-            class="button button-primary"
-            target="_blank">
-            Consultar por WhatsApp
-        </a>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================
-     CONTACTO
-========================= -->
-
-<section class="contact" id="contacto">
-
-    <div class="container contact-grid">
-
-
-        <div>
-
-            <div class="label">
-                Contacto
-            </div>
-
-            <h2>
-                Hablemos de tu proyecto.
-            </h2>
-
-            <p class="description">
-                Comunicate con nosotros para solicitar
-                información o presupuesto.
-            </p>
-
-
-            <div class="contact-info">
-
-
-                <div class="contact-item">
-
-                    <span>
-                        WhatsApp / Teléfono
-                    </span>
-
-                    <strong>
-                        223 XXX XXXX
-                    </strong>
-
-                </div>
-
-
-
-                <div class="contact-item">
-
-                    <span>
-                        Email
-                    </span>
-
-                    <strong>
-                        contacto@tuempresa.com
-                    </strong>
-
-                </div>
-
-
-
-                <div class="contact-item">
-
-                    <span>
-                        Zona
-                    </span>
-
-                    <strong>
-                        Mar del Plata y zona
-                    </strong>
-
-                </div>
-
 
             </div>
 
         </div>
 
+    </section>
 
 
-        <div class="contact-box">
+    <!-- =========================
+         FOOTER
+    ========================== -->
 
-            <h3>
-                Solicitar presupuesto
-            </h3>
+    <footer>
 
-            <p>
-                Para una respuesta rápida,
-                escribinos directamente por WhatsApp.
-            </p>
+        <div class="footer-container">
 
-            <a
-                href="https://wa.me/5492235479235"
-                class="button button-primary"
-                target="_blank">
-                Escribir por WhatsApp
-            </a>
+            <div class="footer-logo">
+                NgpInstalaciones
+            </div>
+
+            <div class="footer-text">
+                Plomería · Gas · Calefacción
+            </div>
 
         </div>
 
 
-    </div>
+        <div class="footer-bottom">
 
-</section>
+            © 2026 NgpInstalaciones. Todos los derechos reservados.
 
+        </div>
 
-
-<!-- =========================
-     FOOTER
-========================= -->
-
-<footer>
-
-    <p>
-        © 2026 NgpInstalaciones — Plomería, Gas y Calefacción.
-        Mar del Plata, Buenos Aires.
-    </p>
-
-</footer>
+    </footer>
 
 
+    <!-- =========================
+         WHATSAPP FLOTANTE
+    ========================== -->
 
-<!-- =========================
-     BOTON WHATSAPP
-========================= -->
-
-<a
-    class="whatsapp"
-    href="https://wa.me/5492235479235"
-    target="_blank"
-    aria-label="WhatsApp">
-
-    W
-
-</a>
+    <a
+        href="https://wa.me/5492235479235?text=Hola,%20quiero%20hacer%20una%20consulta."
+        target="_blank"
+        class="whatsapp-float"
+        aria-label="Contactar por WhatsApp"
+    >
+        W
+    </a>
 
 
+    <!-- =========================
+         JAVASCRIPT DEL CARRUSEL
+    ========================== -->
 
-<!-- =========================
-     JAVASCRIPT DEL CARRUSEL
-========================= -->
+    <script>
 
-<script>
+        let currentSlide = 0;
 
-    let currentSlide = 0;
-
-    const slides = document.querySelectorAll(".hero-slide");
-    const dots = document.querySelectorAll(".slider-dot");
+        const slides = document.querySelectorAll(".hero-slide");
+        const dots = document.querySelectorAll(".slider-dot");
 
 
-    function showSlide(index) {
+        function showSlide(index) {
 
-        if (index >= slides.length) {
-            currentSlide = 0;
-        }
+            if (index >= slides.length) {
+                currentSlide = 0;
 
-        else if (index < 0) {
-            currentSlide = slides.length - 1;
-        }
+            } else if (index < 0) {
+                currentSlide = slides.length - 1;
 
-        else {
-            currentSlide = index;
+            } else {
+                currentSlide = index;
+            }
+
+
+            slides.forEach((slide) => {
+                slide.classList.remove("active");
+            });
+
+
+            dots.forEach((dot) => {
+                dot.classList.remove("active");
+            });
+
+
+            slides[currentSlide].classList.add("active");
+            dots[currentSlide].classList.add("active");
         }
 
 
-        slides.forEach((slide) => {
-            slide.classList.remove("active");
-        });
+        function changeSlide(direction) {
+
+            showSlide(currentSlide + direction);
+
+            resetTimer();
+        }
 
 
-        dots.forEach((dot) => {
-            dot.classList.remove("active");
-        });
+        function goToSlide(index) {
+
+            showSlide(index);
+
+            resetTimer();
+        }
 
 
-        slides[currentSlide].classList.add("active");
-        dots[currentSlide].classList.add("active");
-
-    }
-
-
-    function changeSlide(direction) {
-
-        showSlide(currentSlide + direction);
-
-        resetTimer();
-
-    }
-
-
-    function goToSlide(index) {
-
-        showSlide(index);
-
-        resetTimer();
-
-    }
-
-
-    let slideTimer = setInterval(() => {
-
-        showSlide(currentSlide + 1);
-
-    }, 4000);
-
-
-    function resetTimer() {
-
-        clearInterval(slideTimer);
-
-        slideTimer = setInterval(() => {
+        let slideTimer = setInterval(() => {
 
             showSlide(currentSlide + 1);
 
         }, 4000);
 
-    }
 
-</script>
+        function resetTimer() {
 
+            clearInterval(slideTimer);
+
+            slideTimer = setInterval(() => {
+
+                showSlide(currentSlide + 1);
+
+            }, 4000);
+
+        }
+
+    </script>
 
 </body>
 </html>
