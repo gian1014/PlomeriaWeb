@@ -1,4 +1,4 @@
-```html
+
 <!DOCTYPE html>
 
 <html lang="es">
@@ -348,44 +348,78 @@
             margin-bottom: 18px;
         }
 
-
         /* =========================
            SERVICIOS
         ========================= */
 
+        .services-section {
+            background: #ffffff;
+        }
+
         .services-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
+            gap: 22px;
+            margin-top: 45px;
         }
 
         .service-card {
-            padding: 35px 28px;
-            border: 1px solid #e5e7eb;
-            border-radius: 8px;
-            background: white;
+            min-height: 140px;
+            padding: 20px 22px;
+            border: 1px solid #dfe7ee;
+            border-radius: 10px;
+            background: #ffffff;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
             transition: 0.3s ease;
         }
 
         .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 28px rgba(13, 47, 77, 0.08);
+            border-color: #cbdfea;
         }
 
         .service-icon {
-            font-size: 35px;
-            margin-bottom: 20px;
+            flex: 0 0 68px;
+            width: 68px;
+            height: 68px;
+            border-radius: 50%;
+            background: #eaf5fc;
+            color: #0b6e99;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .service-icon svg {
+            width: 38px;
+            height: 38px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .service-content {
+            padding-top: 2px;
         }
 
         .service-card h3 {
-            margin-bottom: 12px;
-            font-size: 21px;
+            margin-bottom: 7px;
+            font-size: 18px;
+            color: #1f2933;
         }
 
         .service-card p {
             color: #667085;
-            font-size: 15px;
+            font-size: 14px;
+            line-height: 1.55;
         }
+
+
 
 
         /* =================================================
@@ -703,64 +737,193 @@
             font-weight: bold;
         }
 
-
         /* =========================
            CONTACTO
         ========================= */
 
+        .contact-section {
+            position: relative;
+            overflow: hidden;
+            background: #f3f8fc;
+        }
+
+        .contact-section::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 42%;
+            height: 100%;
+            background:
+                linear-gradient(90deg, rgba(243, 248, 252, 1) 0%, rgba(243, 248, 252, 0.20) 24%, rgba(243, 248, 252, 0) 65%),
+                url("https://images.unsplash.com/photo-1581147036324-c17ac41f2f5f?auto=format&fit=crop&w=1400&q=85") center/cover no-repeat;
+            opacity: 0.9;
+            pointer-events: none;
+        }
+
         .contact-grid {
+            position: relative;
+            z-index: 2;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .contact-label {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            color: #0b6e99;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 14px;
+        }
+
+        .contact-label::after {
+            content: "";
+            width: 75px;
+            height: 2px;
+            background: #0b6e99;
         }
 
         .contact-info h2 {
-            font-size: 38px;
+            font-size: 40px;
+            line-height: 1.15;
             margin-bottom: 20px;
+            color: #172b3f;
         }
 
-        .contact-info p {
+        .contact-info > p {
+            max-width: 560px;
             color: #667085;
-            margin-bottom: 30px;
+            margin-bottom: 32px;
+            font-size: 16px;
+        }
+
+        .contact-details {
+            display: flex;
+            gap: 42px;
+            flex-wrap: wrap;
         }
 
         .contact-item {
-            margin-bottom: 20px;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .contact-item-icon {
+            width: 48px;
+            height: 48px;
+            flex: 0 0 48px;
+            border-radius: 50%;
+            background: #e3f2fb;
+            color: #0b6e99;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-item-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
 
         .contact-item strong {
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 2px;
+            color: #1f2933;
+            font-size: 15px;
         }
 
         .contact-item span {
             color: #667085;
+            font-size: 14px;
         }
 
         .contact-box {
-            background: #f7f9fb;
-            padding: 40px;
-            border-radius: 8px;
+            max-width: 480px;
+            margin-left: auto;
+            background: rgba(255, 255, 255, 0.92);
+            border: 1px solid rgba(219, 230, 238, 0.9);
+            padding: 34px 38px;
+            border-radius: 12px;
+            box-shadow: 0 14px 40px rgba(13, 47, 77, 0.10);
+            backdrop-filter: blur(5px);
+        }
+
+        .contact-box-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .contact-whatsapp-icon {
+            width: 50px;
+            height: 50px;
+            flex: 0 0 50px;
+            border-radius: 50%;
+            background: #25D366;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-whatsapp-icon svg {
+            width: 28px;
+            height: 28px;
+            fill: currentColor;
         }
 
         .contact-box h3 {
-            font-size: 24px;
-            margin-bottom: 15px;
+            font-size: 26px;
+            margin: 0;
+            color: #1f2933;
         }
 
         .contact-box p {
             color: #667085;
-            margin-bottom: 25px;
+            margin: 0 0 25px 66px;
+            line-height: 1.6;
         }
 
         .whatsapp-button {
-            display: inline-block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
             background: #25D366;
             color: white;
-            padding: 14px 25px;
-            border-radius: 6px;
+            padding: 14px 20px;
+            border-radius: 7px;
             font-weight: bold;
+            transition: 0.25s ease;
         }
+
+        .whatsapp-button:hover {
+            background: #1fb957;
+            transform: translateY(-2px);
+        }
+
+        .whatsapp-button svg {
+            width: 22px;
+            height: 22px;
+            fill: currentColor;
+        }
+
+
 
 
         /* =========================
@@ -956,6 +1119,54 @@
             .footer-container {
                 flex-direction: column;
                 text-align: center;
+            }
+
+        
+
+            .service-card {
+                min-height: auto;
+                padding: 20px;
+            }
+
+            .service-icon {
+                flex-basis: 58px;
+                width: 58px;
+                height: 58px;
+            }
+
+            .service-icon svg {
+                width: 32px;
+                height: 32px;
+            }
+
+            .contact-section::after {
+                display: none;
+            }
+
+            .contact-grid {
+                gap: 35px;
+            }
+
+            .contact-info h2 {
+                font-size: 30px;
+            }
+
+            .contact-details {
+                gap: 20px;
+            }
+
+            .contact-box {
+                max-width: none;
+                margin: 0;
+                padding: 28px 24px;
+            }
+
+            .contact-box h3 {
+                font-size: 23px;
+            }
+
+            .contact-box p {
+                margin-left: 0;
             }
 
         }
@@ -1211,12 +1422,11 @@
 
     </section>
 
-
     <!-- =========================
          SERVICIOS
     ========================= -->
 
-    <section id="servicios">
+    <section id="servicios" class="services-section">
 
         <div class="section-container">
 
@@ -1227,12 +1437,12 @@
                 </span>
 
                 <h2>
-                    Soluciones para cada necesidad
+                    Lo que necesitás, en un solo lugar
                 </h2>
 
                 <p>
-                    Realizamos trabajos de instalación, mantenimiento
-                    y reparación para distintos tipos de proyectos.
+                    Realizamos trabajos de instalación, mantenimiento y reparación
+                    para hogares, comercios, edificios y proyectos de construcción.
                 </p>
 
             </div>
@@ -1240,21 +1450,22 @@
 
             <div class="services-grid">
 
-
                 <div class="service-card">
 
                     <div class="service-icon">
-                        🔧
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12 2C8.7 7.2 5 10.8 5 15a7 7 0 0 0 14 0c0-4.2-3.7-7.8-7-13z"></path>
+                            <path d="M9.5 15.5a3.2 3.2 0 0 0 2.5 2.5"></path>
+                        </svg>
                     </div>
 
-                    <h3>
-                        Plomería
-                    </h3>
-
-                    <p>
-                        Instalaciones, reparaciones y mantenimiento
-                        de sistemas de agua y desagües.
-                    </p>
+                    <div class="service-content">
+                        <h3>Plomería</h3>
+                        <p>
+                            Instalaciones, reparaciones y mantenimiento
+                            de sistemas de agua y desagües.
+                        </p>
+                    </div>
 
                 </div>
 
@@ -1262,17 +1473,19 @@
                 <div class="service-card">
 
                     <div class="service-icon">
-                        🔥
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12 21c4.4 0 7-2.8 7-6.4 0-3.1-2.1-5.7-5.4-8.8.1 2.5-1 4-2.4 5.1.2-3.4-1.2-5.7-3.3-7.9.1 4.3-2.9 6.2-2.9 9.5C5 18.2 8 21 12 21z"></path>
+                            <path d="M10 16.5c0 1.5.9 2.5 2.3 2.5"></path>
+                        </svg>
                     </div>
 
-                    <h3>
-                        Gas
-                    </h3>
-
-                    <p>
-                        Instalaciones y trabajos relacionados con
-                        redes y artefactos de gas.
-                    </p>
+                    <div class="service-content">
+                        <h3>Gas</h3>
+                        <p>
+                            Instalaciones y trabajos relacionados
+                            con redes y artefactos de gas.
+                        </p>
+                    </div>
 
                 </div>
 
@@ -1280,17 +1493,21 @@
                 <div class="service-card">
 
                     <div class="service-icon">
-                        ♨️
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M8 21c0-3 2-3.8 2-6.5 0-2-1.2-3.2-1.2-5.5"></path>
+                            <path d="M12 21c0-3 2-3.8 2-6.5 0-2-1.2-3.2-1.2-5.5"></path>
+                            <path d="M16 21c0-3 2-3.8 2-6.5 0-2-1.2-3.2-1.2-5.5"></path>
+                            <path d="M6 21h12"></path>
+                        </svg>
                     </div>
 
-                    <h3>
-                        Calefacción
-                    </h3>
-
-                    <p>
-                        Instalación y mantenimiento de sistemas
-                        de calefacción.
-                    </p>
+                    <div class="service-content">
+                        <h3>Calefacción</h3>
+                        <p>
+                            Instalación y mantenimiento de sistemas
+                            de calefacción.
+                        </p>
+                    </div>
 
                 </div>
 
@@ -1298,17 +1515,20 @@
                 <div class="service-card">
 
                     <div class="service-icon">
-                        🏠
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M3 11.5 12 4l9 7.5"></path>
+                            <path d="M5.5 10.5V20h13v-9.5"></path>
+                            <path d="M9.5 20v-5h5v5"></path>
+                        </svg>
                     </div>
 
-                    <h3>
-                        Instalaciones domiciliarias
-                    </h3>
-
-                    <p>
-                        Soluciones para viviendas nuevas,
-                        remodelaciones y mantenimiento.
-                    </p>
+                    <div class="service-content">
+                        <h3>Instalaciones domiciliarias</h3>
+                        <p>
+                            Soluciones para viviendas nuevas,
+                            remodelaciones y mantenimiento.
+                        </p>
+                    </div>
 
                 </div>
 
@@ -1316,17 +1536,21 @@
                 <div class="service-card">
 
                     <div class="service-icon">
-                        🏢
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M4 21V6h10v15"></path>
+                            <path d="M14 10h6v11"></path>
+                            <path d="M7 9h2M7 12h2M7 15h2M11 9h1M11 12h1M11 15h1"></path>
+                            <path d="M2 21h20"></path>
+                        </svg>
                     </div>
 
-                    <h3>
-                        Obras y edificios
-                    </h3>
-
-                    <p>
-                        Trabajos de instalaciones para obras,
-                        edificios y proyectos de construcción.
-                    </p>
+                    <div class="service-content">
+                        <h3>Obras y edificios</h3>
+                        <p>
+                            Trabajos de instalaciones para obras,
+                            edificios y proyectos de construcción.
+                        </p>
+                    </div>
 
                 </div>
 
@@ -1334,26 +1558,36 @@
                 <div class="service-card">
 
                     <div class="service-icon">
-                        ⚙️
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12 3v3"></path>
+                            <path d="M12 18v3"></path>
+                            <path d="m4.9 4.9 2.1 2.1"></path>
+                            <path d="m17 17 2.1 2.1"></path>
+                            <path d="M3 12h3"></path>
+                            <path d="M18 12h3"></path>
+                            <path d="m4.9 19.1 2.1-2.1"></path>
+                            <path d="m17 7 2.1-2.1"></path>
+                            <circle cx="12" cy="12" r="4"></circle>
+                        </svg>
                     </div>
 
-                    <h3>
-                        Mantenimiento
-                    </h3>
-
-                    <p>
-                        Mantenimiento preventivo y correctivo
-                        para instalaciones.
-                    </p>
+                    <div class="service-content">
+                        <h3>Mantenimiento</h3>
+                        <p>
+                            Mantenimiento preventivo y correctivo
+                            para instalaciones.
+                        </p>
+                    </div>
 
                 </div>
-
 
             </div>
 
         </div>
 
     </section>
+
+
 
 
     <!-- =====================================================
@@ -1782,53 +2016,66 @@
 
     </section>
 
-
     <!-- =========================
          CONTACTO
     ========================= -->
 
-    <section id="contacto">
+    <section id="contacto" class="contact-section">
 
         <div class="section-container">
 
             <div class="contact-grid">
 
-
                 <div class="contact-info">
+
+                    <div class="contact-label">
+                        Contacto
+                    </div>
 
                     <h2>
                         Hablemos de tu proyecto
                     </h2>
 
                     <p>
-                        Si necesitás realizar una instalación,
-                        reparación o querés consultar por una obra,
-                        podés comunicarte directamente con nosotros.
+                        Si necesitás realizar una instalación, reparación o querés
+                        consultar por una obra, podés comunicarte directamente con nosotros.
                     </p>
 
 
-                    <div class="contact-item">
+                    <div class="contact-details">
 
-                        <strong>
-                            📍 Ubicación
-                        </strong>
+                        <div class="contact-item">
 
-                        <span>
-                            Mar del Plata y zona
-                        </span>
+                            <div class="contact-item-icon">
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0z"></path>
+                                    <circle cx="12" cy="10" r="2.5"></circle>
+                                </svg>
+                            </div>
 
-                    </div>
+                            <div>
+                                <strong>Ubicación</strong>
+                                <span>Mar del Plata y zona</span>
+                            </div>
+
+                        </div>
 
 
-                    <div class="contact-item">
+                        <div class="contact-item">
 
-                        <strong>
-                            📱 WhatsApp
-                        </strong>
+                            <div class="contact-item-icon">
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M20 11.5a8 8 0 0 1-11.8 7.1L4 20l1.4-4A8 8 0 1 1 20 11.5z"></path>
+                                    <path d="M8.5 8.5c.2 2.7 2.3 5 5 5.3l1.4-1.4"></path>
+                                </svg>
+                            </div>
 
-                        <span>
-                            223 547-9235
-                        </span>
+                            <div>
+                                <strong>WhatsApp</strong>
+                                <span>223 547-9235</span>
+                            </div>
+
+                        </div>
 
                     </div>
 
@@ -1837,9 +2084,17 @@
 
                 <div class="contact-box">
 
-                    <h3>
-                        Contactanos
-                    </h3>
+                    <div class="contact-box-header">
+
+                        <div class="contact-whatsapp-icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12 2a10 10 0 0 0-8.7 15L2 22l5.2-1.3A10 10 0 1 0 12 2zm5.8 14.4c-.2.5-1.2 1-1.7 1.1-.5.1-1.1.2-1.8-.1-.4-.1-1-.4-1.7-.7-3-1.3-4.9-4.4-5-4.6-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.3-.3.6-.4.8-.4h.6c.2 0 .4.1.5.4l.8 1.8c.1.3.1.5 0 .7l-.4.6c-.2.2-.3.4-.1.7.2.4.8 1.3 1.7 2.1 1.2 1 2.2 1.3 2.5 1.4.3.1.5.1.7-.1l1-1.2c.2-.2.4-.3.7-.2l1.7.8c.3.1.5.2.5.4.1.2.1.9-.1 1.4z"></path>
+                            </svg>
+                        </div>
+
+                        <h3>Contactanos</h3>
+
+                    </div>
 
                     <p>
                         Escribinos por WhatsApp y contanos
@@ -1851,8 +2106,11 @@
                         target="_blank"
                         class="whatsapp-button">
 
-                        WhatsApp
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12 2a10 10 0 0 0-8.7 15L2 22l5.2-1.3A10 10 0 1 0 12 2zm5.8 14.4c-.2.5-1.2 1-1.7 1.1-.5.1-1.1.2-1.8-.1-.4-.1-1-.4-1.7-.7-3-1.3-4.9-4.4-5-4.6-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.3-.3.6-.4.8-.4h.6c.2 0 .4.1.5.4l.8 1.8c.1.3.1.5 0 .7l-.4.6c-.2.2-.3.4-.1.7.2.4.8 1.3 1.7 2.1 1.2 1 2.2 1.3 2.5 1.4.3.1.5.1.7-.1l1-1.2c.2-.2.4-.3.7-.2l1.7.8c.3.1.5.2.5.4.1.2.1.9-.1 1.4z"></path>
+                        </svg>
 
+                        Enviar mensaje por WhatsApp →
                     </a>
 
                 </div>
@@ -1862,6 +2120,8 @@
         </div>
 
     </section>
+
+
 
 
     <!-- =========================
@@ -2821,4 +3081,3 @@
 </body>
 
 </html>
-```
